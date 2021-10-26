@@ -16,7 +16,8 @@ def circulating_supply(height: int) -> float:
 
     if height < 0:
         raise ValueError("Height must be a non-negative integer.")
-    elif not isinstance(height, int):
+        
+    if not isinstance(height, int):
         raise TypeError("Height must be an integer.")
 
     height += 1
