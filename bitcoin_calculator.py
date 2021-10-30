@@ -21,12 +21,12 @@ def circulating_supply(height: int) -> float:
         raise TypeError("Height must be an integer.")
 
     height += 1
-    HALVING_CYCLES = height // INTERVAL
+    halving_cycles = height // INTERVAL
 
-    return BASE_REWARD * REDUCTION ** HALVING_CYCLES * (
-        height / INTERVAL - HALVING_CYCLES
+    return BASE_REWARD * REDUCTION ** halving_cycles * (
+        height / INTERVAL - halving_cycles
     ) * INTERVAL + sum(
-        MAX_SUPPLY * REDUCTION ** x for x in range(1, HALVING_CYCLES + 1)
+        MAX_SUPPLY * REDUCTION ** x for x in range(1, halving_cycles + 1)
     )
 
 
