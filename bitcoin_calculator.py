@@ -23,7 +23,7 @@ def circulating_supply(height: int) -> float:
     height += 1
     halving_cycles = height // INTERVAL
 
-    return BASE_REWARD * REDUCTION ** halving_cycles * (
+    return block_reward(height) * (
         height / INTERVAL - halving_cycles
     ) * INTERVAL + sum(
         MAX_SUPPLY * REDUCTION ** x for x in range(1, halving_cycles + 1)
